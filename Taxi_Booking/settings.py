@@ -80,14 +80,14 @@ from mongoengine import connect
 
 MONGODB_DATABASES = {
     "default": {
-        "NAME": "taxi_booking_db",
+        "NAME": "Test",
         "HOST": "mongodb+srv://mdarsathbmtechx:ctnsS0FwBwDJCBu5@cluster0.93wd274.mongodb.net/taxi_booking_db?retryWrites=true&w=majority",
     }
 }
 
 # Connect MongoEngine to Atlas
 connect(
-    db="taxi_booking_db",  # Database name
+    db="Test",  # Database name
     host="mongodb+srv://mdarsathbmtechx:ctnsS0FwBwDJCBu5@cluster0.93wd274.mongodb.net/taxi_booking_db?retryWrites=true&w=majority"
 )
 
