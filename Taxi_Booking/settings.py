@@ -76,20 +76,21 @@ WSGI_APPLICATION = 'Taxi_Booking.wsgi.application'
 # MONGODB DATABASES (django_mongoengine)
 # -----------------------------
 # MongoDB settings
+from mongoengine import connect
+
 MONGODB_DATABASES = {
     "default": {
         "NAME": "taxi_booking_db",
-        "HOST": "localhost",
-        "PORT": 27017,
+        "HOST": "mongodb+srv://mdarsathbmtechx:ctnsS0FwBwDJCBu5@cluster0.93wd274.mongodb.net/taxi_booking_db?retryWrites=true&w=majority",
     }
 }
 
-# Connect MongoEngine
+# Connect MongoEngine to Atlas
 connect(
-    db="taxi_booking_db",
-    host="localhost",
-    port=27017
+    db="taxi_booking_db",  # Database name
+    host="mongodb+srv://mdarsathbmtechx:ctnsS0FwBwDJCBu5@cluster0.93wd274.mongodb.net/taxi_booking_db?retryWrites=true&w=majority"
 )
+
 
 # -----------------------------
 # AUTH
