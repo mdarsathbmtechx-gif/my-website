@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Bookings</title>
+  <style>
+    /* ===== Reset & Base ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+      padding: 40px 15px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #007bff;
+    }
+
+    /* ===== Table ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    thead {
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      color: white;
+    }
+
+    th, td {
+      padding: 14px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    tr:hover {
+      background: #eaf3ff;
+      transition: 0.3s ease;
+    }
+
+    th {
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      font-size: 14px;
+      color: #444;
+    }
+
+    /* ===== Back Button ===== */
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #0056b3, #003f88);
+      transform: scale(1.05);
+    }
+
+    p {
+      text-align: center;
+      color: #666;
+      font-size: 15px;
+    }
+
+    /* ===== Header Styles ===== */
+    .header {
+      background-color: #fff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .header img {
+      width: 150px;
+    }
+    .nav {
+      margin-top: 10px;
+    }
+    .nav a {
+      color: #333;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    .nav a:hover {
+      color: #007bff;
+    }
+    .book-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .book-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="https://onewaydroptaxisalem.com/wp-content/uploads/2023/06/one-way-drop-taxi-salem-logo.png" alt="Logo">
+    <div class="nav">
+      <a href="home.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="#">Services</a>
+      <a href="#">Tariff</a>
+      <a href="#">Reviews</a>
+      <a href="#">Why Choose</a>
+      <a href="#">Contact</a>
+    </div>
+    <a href="bookings_list.html" class="book-btn">Book a Ride</a>
+  </div>
+
+  <div class="container">
+    <h1>📋 All Bookings</h1>
+
+    {% if bookings %}
+    <table>
+      <thead>
+        <tr>
+          <th>Customer Name</th>
+          <th>Pickup Location</th>
+          <th>Drop Location</th>
+          <th>Passengers</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for booking in bookings %}
+        <tr>
+          <td>{{ booking.customer_name }}</td>
+          <td>{{ booking.pickup_location }}</td>
+          <td>{{ booking.drop_location }}</td>
+          <td>{{ booking.passengers }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+      <p>No bookings found.</p>
+    {% endif %}
+
+    <div style="text-align:center;">
+      <a href="{% url 'home' %}" class="btn">⬅ Go Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>
